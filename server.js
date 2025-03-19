@@ -1,12 +1,14 @@
 require('dotenv').config(); // Läser in .env-filen
 const express = require('express'); // Importera express
 const mongoose = require('mongoose'); // Importera mongoose
+const cors = require('cors'); // Importera cors
 
 const app = express(); // Skapa en instans av express
 const PORT = process.env.PORT; // Porten som servern ska lyssna på
 
 
 app.use(express.json()); // Middleware för att tolka JSON
+app.use(cors()); // Middleware för att aktivera CORS
 
 console.log("MONGO_URI från process.env:", process.env.MONGO_URI); // Skriv ut MONGO_URI från .env-filen
 
